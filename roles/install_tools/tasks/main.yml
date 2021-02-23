@@ -1,2 +1,2 @@
-- name: Install supporting tools 
+- name: Install supporting tools
   script: install.sh
