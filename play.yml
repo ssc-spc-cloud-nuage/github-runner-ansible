@@ -1,13 +1,11 @@
 ---
-- name: Install Github Runner and dependencies
+- name: Install Github Runner and tools
   hosts: github-runner
   become: yes
-  environment:
-    - PERSONAL_ACCESS_TOKEN: <your-github-token>
-    - USER: <github-runner-user>
   vars:
-    - github_account: <org-name>
-    - runner_org: true
+    - github_account: <account-name>
+    - github_repo: <repo-name>
+  # - runner_org: true # If runner is org wide
   roles:
     - monolithprojects.github_actions_runner
     - install_tools

@@ -1,2 +1,11 @@
-- name: Install supporting tools
-  script: install.sh
+- name: Install base utils
+  command: "{{ item }}"
+  with_fileglob: "base/*.sh"
+
+- name: Install pipeline tools
+  command: "{{ item }}"
+  with_fileglob: "installers/*.sh"
+  environment:
+    SCRIPT_PATH: "{{ role_path }}/files"
+    HELPER_SCRIPTS: "{{ role_path }}/files/helpers"
+
