@@ -9,3 +9,24 @@
     SCRIPT_PATH: "{{ role_path }}/files"
     HELPER_SCRIPTS: "{{ role_path }}/files/helpers"
 
+- name: Install pipeline tools (rootless)
+  become: no
+  command: "{{ item }}"
+  with_fileglob: "rootless/*.sh"
+  environment:
+    SCRIPT_PATH: "{{ role_path }}/files"
+    HELPER_SCRIPTS: "{{ role_path }}/files/helpers"
+    
+- name: Configure rootless docker
+  shell: |
+    USER_NAME="{{ lookup('env', 'USER') }}"
+
+    # Start Docker service by default
+    loginctl enable-linger $USER_NAME
+    su -l $USER_NAME -c "systemctl --user enable docker"
+
+    # Allow bind of privileged ports
+    echo "net.ipv4.ip_unprivileged_port_start=0" >>/etc/sysctl.conf
+    sysctl --system
+  args:
+    executable: /bin/bash
