@@ -16,7 +16,7 @@
   environment:
     SCRIPT_PATH: "{{ role_path }}/files"
     HELPER_SCRIPTS: "{{ role_path }}/files/helpers"
-    
+
 - name: Configure rootless docker
   shell: |
     USER_NAME="{{ lookup('env', 'USER') }}"
