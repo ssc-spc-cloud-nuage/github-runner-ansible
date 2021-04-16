@@ -1,9 +1,7 @@
 set -e # Stop on error
 export RUNNER_ALLOW_RUNASROOT=1
-cd ~
-cd actions-runner
-pwd
+cd /opt/actions-runner
 ./svc.sh stop
 ./svc.sh uninstall
-cd ..
+cd /opt
 rm -r actions-runner
