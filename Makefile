@@ -7,6 +7,11 @@ help: ## This help.
 
 .DEFAULT_GOAL := help
 
-runner: ## Setup the GitHub runner
-	ansible-galaxy install -r requirements.yml
-	ansible-playbook play.yml -i inv
+runner-install: ## Setup the GitHub runner
+	sudo ./scripts/runner-install.sh
+
+runner-uninstall: ## Setup the GitHub runner
+	sudo ./scripts/runner-uninstall.sh
+
+tools:
+	sudo ./scripts/tools.sh

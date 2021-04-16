@@ -21,4 +21,6 @@ cat /etc/apt/sources.list
 
 apt-get update
 # Install base tools
-apt-get install aria2 jq apt-fast make unzip
+DEBIAN_FRONTEND="noninteractive" apt-get install aria2 jq apt-fast make unzip -y
+
+# apt-get install aria2 jq make unzip
