@@ -3,19 +3,15 @@ Playbook to create a GitHub Runner with some supporting tools from the [official
 
 # Setup
 
-Update `play.yml` with the following:
-
-```yaml
-vars:
-  - github_account: <account-name>
-  - github_repo: <repo-name>
-```
-
-Export your personal access token and the user the runner will run as:
-
 ```sh
-export USER=$(whoami)
-export PERSONAL_ACCESS_TOKEN=<your-github-token>
+sudo su -
+mkdir actions-runner; cd actions-runner
+curl -o actions-runner-linux-x64-2.277.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.277.1/actions-runner-linux-x64-2.277.1.tar.gz
+tar xzf ./actions-runner-linux-x64-2.277.1.tar.gz
+export RUNNER_ALLOW_RUNASROOT=1
+./config.sh --url https://github.com/ssc-spc-cloud-nuage/myssc-drupalwxt --token AGBAUF2S4SPTHL4ARQDJ77TAPELBU
+./svc.sh install
+./svc.sh start
 ```
 
 Start the install:

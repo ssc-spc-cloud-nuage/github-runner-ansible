@@ -2,10 +2,10 @@
 - name: Install Github Runner and tools
   hosts: github-runner
   become: yes
-  vars:
-    - github_account: <account-name>
-    - github_repo: <repo-name>
+  #vars:
+  #  - github_account: ssc-spc-cloud-nuage
+  #  - github_repo: myssc-drupalwxt
   # - runner_org: true # If runner is org wide
   roles:
-    - monolithprojects.github_actions_runner
+  #  - monolithprojects.github_actions_runner
     - install_tools
