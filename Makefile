@@ -10,8 +10,8 @@ help: ## This help.
 runner-install: ## Setup the GitHub runner
 	sudo ./scripts/runner-install.sh
 
-runner-uninstall: ## Setup the GitHub runner
+runner-uninstall: ## REmove the GitHub runner
 	sudo ./scripts/runner-uninstall.sh
 
-tools:
-	sudo ./scripts/tools.sh
+tools-install:
+	sudo ./scripts/tools-install.sh
