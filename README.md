@@ -7,7 +7,7 @@ Install tools:
 
 ```sh
 cd /home/azureadmin/github-runner-ansible
-make runner
+make tools-install
 ```
 
 Install agent:

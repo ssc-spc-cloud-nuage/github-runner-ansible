@@ -1,4 +1,4 @@
-sudo docker system prune -a --volume
+sudo docker system prune -a
 #sudo docker container prune --filter "until=2h"
 #sudo docker container prune -f
 #sudo docker image prune -f
